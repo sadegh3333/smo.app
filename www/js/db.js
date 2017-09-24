@@ -39,7 +39,7 @@ function get_all_jobactivity(jsdo){
   var jsdo = jsdo;
 
   $.ajax({
-    url: LDPA.RootServer+"/api/ldpa/do_schedule/",
+    url: LDPA.RootServer+LDPA.APIServer+"/do_schedule/",
 
     data: {
       jobscheduleid: jsdo,
@@ -84,7 +84,7 @@ function get_all_jobactivity(jsdo){
 DB.get_job_schedule_from_server = function(){
 
   $.ajax({
-    url: LDPA.RootServer+"/api/ldpa/schedule/",
+    url: LDPA.RootServer+LDPA.APIServer+"/schedule/",
     data: {
       userid: localStorage.getItem('id'),
     },
@@ -162,7 +162,7 @@ DB.show_do_list = function(){
       $('.JobscheduleID').html(job_schedule_local[a].JobscheduleID);
       $('.JobOrderID').html(job_schedule_local[a].JoborderID);
       $('.JobType').html(job_schedule_local[a].jobtypename);
-      $('.get_report').attr('href' , 'http://74.208.129.75:8080/ldpa/report-for-mobile-app/?JobscheduleID='+job_schedule_local[a].JobscheduleID);
+      $('.get_report').attr('href' , LDPA.RootServer+'/report-for-mobile-app/?JobscheduleID='+job_schedule_local[a].JobscheduleID);
 
       break;
     }
@@ -740,7 +740,7 @@ DB.sync_with_server = function(){
   var  which_user = localStorage.getItem('username');
   $('.show-loading').show();
   $.ajax({
-    url: LDPA.RootServer+"/api/ldpa/sync_with_server/",
+    url: LDPA.RootServer+LDPA.APIServer+"/sync_with_server/",
 
     data: {
       jsdo_done_readyforsync: newarray,
@@ -832,7 +832,7 @@ DB.sendNotification = function(){
 
 
     $.ajax({
-      url: LDPA.RootServer+"/api/ldpa/send_notification/",
+      url: LDPA.RootServer+LDPA.APIServer+"/send_notification/",
 
       data: {
         jsdo_warning: newarray0,

@@ -25,7 +25,7 @@ ldpaApp.controller('loginCtrl', function($scope){
     $('.show-loading').show();
     $.ajax({
       // The URL for the request
-      url: LDPA.RootServer+"/api/ldpa/login/",
+      url: LDPA.RootServer+LDPA.APIServer+"/login/",
 
       // The data to send (will be converted to a query string)
       data: {

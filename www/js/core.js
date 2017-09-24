@@ -28,6 +28,7 @@ LDPA.core = function(){
   LDPA.ChannelVersion = 'Pilot';
 
   LDPA.RootServer = 'https://00p.ir/smo';
+  LDPA.APIServer = '/api/ldpa';
 
   $('.version').html(LDPA.version);
   $('.ChannelVersion').html(LDPA.ChannelVersion);
@@ -252,7 +253,7 @@ $(document).ready(function(){
     $('.show-loading').show();
     $.ajax({
       // The URL for the request
-      url: LDPA.RootServer+"/api/ldpa/login/",
+      url: LDPA.RootServer+LDPA.APIServer+"/login/",
 
       // The data to send (will be converted to a query string)
       data: {
@@ -324,7 +325,7 @@ $(document).ready(function(){
 
     $.ajax({
       // The URL for the request
-      url: LDPA.RootServer+"/api/ldpa/update/",
+      url: LDPA.RootServer+LDPA.APIServer+"/update/",
 
       // The data to send (will be converted to a query string)
       data: {
