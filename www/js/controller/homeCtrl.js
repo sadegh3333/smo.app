@@ -4,7 +4,7 @@ ldpaApp.controller('homeCtrl', function($scope , $location){
   LDPA.login_stat();
 
 
-  $scope.WelcomeMessage = 'Welcome To LDPA';
+  $scope.WelcomeMessage = 'Welcome To SMO';
 
   DB.get_job_schedule_from_server();
 
