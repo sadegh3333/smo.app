@@ -28,7 +28,7 @@ LDPA.core = function(){
   LDPA.ChannelVersion = 'Pilot';
 
   LDPA.RootServer = 'https://00p.ir/smo';
-  LDPA.APIServer = '/api/ldpa';
+  LDPA.APIServer = '/api/smo';
 
   $('.version').html(LDPA.version);
   $('.ChannelVersion').html(LDPA.ChannelVersion);
