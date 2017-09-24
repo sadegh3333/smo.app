@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+
+    <header>
+      <div class="top-control deep-aqua">
+        <div class="row">
+          <div class="col-xs-4 back-to-home ">
+            <a href="#" class="back-button ocean"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+          </div>
+          <div class="col-xs-4 title">
+            Profile
+          </div>
+          <div class="col-xs-4 log-out">
+            <a ng-click="logout()" href="#" class="logout ocean"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <profile class="col-xs-12">
+      <div class="top-background"></div>
+      <div class="user-info">
+        <div class="user-image">
+          <img src="img/img_avatar3.png" alt="">
+        </div>
+        <div class="user-data">
+          <div class="user-name">
+            <h3>
+              <i class="fa fa-user" aria-hidden="true"></i> {{ user_name }}
+            </h3>
+          </div>
+          <div class="user-role">
+            <strong> <i class="fa fa-check-square"></i>  Role:</strong><span class="role"> {{user_role}} </span>
+          </div>
+          <div class="user-desc">
+            I am a programmer.
+            <br>
+            Who can change the world.
+          </div>
+        </div>
+      </div>
+    </profile>
+
+  </div>
+</div>

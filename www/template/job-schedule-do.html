@@ -1,0 +1,131 @@
+
+
+<body onload="LDPA.core()" class="do">
+
+  <header>
+    <div class="top-control deep-aqua">
+      <div class="row">
+        <div class="col-xs-4 back-to-home ">
+          <a href="#!/jobschedule" class="back-button ocean"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+        </div>
+        <div class="col-xs-4 title">
+          Job Schedule
+        </div>
+        <div class="col-xs-4">
+          <a href="" target="_blank" class="get_report ocean"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Report </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <job-schedule>
+    <info-vessel class="wave">
+      <div id="geolocation" style="display:none;"></div>
+      <div class="here_location" style="display:none;"></div>
+
+
+      <div>
+        <i class="fa fa-key" aria-hidden="true"></i> JS_ID: <span class="JobscheduleID">JobscheduleID Goes Here</span>
+      </div>
+      <div>
+        <i class="fa fa-key" aria-hidden="true"></i> JO_ID: <span class="JobOrderID">JoborderID Goes Here</span>
+      </div>
+      <div>
+        <i class="fa fa-ship" aria-hidden="true"></i> <span class="VesselName">VesselName Goes Here</span>
+      </div>
+      <div style="text-align: right;">
+        <i class="fa fa-check" aria-hidden="true"></i> JobType: <span class="JobType">JobType Goes Here</span>
+      </div>
+
+      <div class="report">
+
+      </div>
+
+    </info-vessel>
+    <div class="job-schedule-list">
+      <div class="todo_list">
+        <span> Work </span>
+        <span> Status </span>
+      </div>
+      <!-- All JobSchedule Goes here... -->
+    </div>
+  </job-schedule>
+  <div class="" id="newone"></div>
+
+
+
+  <!-- This is Lightbox for when user want to Edit -->
+  <lightbox-edit class="lightbox-edit" attr-id="">
+    <div class="title">
+      <span><i class="fa fa-pencil" aria-hidden="true"></i> Edit (<span class="ActivityID"> 834 </span>)</span>
+      <span class="close" ng-click="close()"><i class="fa fa-times" aria-hidden="true"></i></span>
+    </div>
+
+    <div class="">
+      <label for="datetime">DateTime:</label>
+      <input class="inputdatetime" type="datetime-local" name="datetime" value="" placeholder="datetime">
+    </div>
+    <div class="">
+      <label for="AdditionalInput">AdditionalInput:</label>
+      <input class="inputAdditionalInput" type="text" name="AdditionalInput" value="" placeholder="AdditionalInput">
+    </div>
+    <div class="submit-box">
+      <button ng-click="submit()" type="button" name="button" class="submit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        Submit</button>
+
+      </div>
+    </lightbox-edit>
+
+    <script type="text/javascript">
+
+
+
+    $('.get_report').click(function(){
+
+
+      // window.open(encodeURI(new_version), '_system', 'location=yes');
+      cordova.InAppBrowser.open(this.attr('href'), '_system', 'location=yes');
+
+    });
+
+
+    // Show list todo_list
+    DB.show_do_list();
+
+
+    $(document).ready(function(){
+
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+    });
+
+    document.addEventListener("deviceready", getLocationFromGPS, false);
+
+    function getLocationFromGPS() {
+      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    function onSuccess(position) {
+      var element = document.getElementById('geolocation');
+      element.innerHTML = 'hello babe i have NO error';
+
+      // '35.6998985,51.3419222'
+      var where = position.coords.latitude+','+position.coords.longitude;
+      localStorage.setItem('location',where);
+      $('.here_location').html(where);
+    }
+
+    function onError(error) {
+      $('.here_location').html(error);
+    }
+
+
+    setTimeout(function(){
+      $('.here_location').html(localStorage.getItem('location'));
+    },5000);
+
+
+
+
+
+
+    </script>

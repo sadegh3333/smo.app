@@ -1,0 +1,99 @@
+
+
+<header>
+  <div class="top-control deep-aqua">
+    <div class="row">
+      <div class="col-xs-4 back-to-home ">
+        <a href="#" class=" back-button ocean"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+      </div>
+      <div class="col-xs-4 title">
+        Job Schedule
+      </div>
+      <div class="col-xs-4 log-out">
+        <a ng-click="" href="#!/" class="logout ocean"><i class="fa fa-sign-out" aria-hidden="true"></i> Home</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="check_online"></div>
+
+<!-- <job-schedule>
+<div class="job-schedule-list">
+<ul class="job-schedule-list-show">
+<span class="job-schedule-list-show-here"></span>
+
+</ul>
+</div>
+</job-schedule> -->
+
+<message class="message" ng-click="AsssingData()"> New Data is Available! </message>
+<message-noty> New Data assigned ! </message-noty>
+
+<job-schedule>
+  <div class="job-schedule-list" >
+    <ul class="job-schedule-list-show" >
+
+
+      <li ng-repeat="schedule in jobschedule_local" class="jobtype-{{schedule.jobtypename}}"  ng-click=gotodo(schedule.JobscheduleID) item={{schedule.JobscheduleID}}>
+        <div class="id-schedule"><i class="fa fa-key"></i> JS_ID: {{schedule.JobscheduleID}}</div>
+        <div class="id-joborder"><i class="fa fa-key"></i> JO_ID: {{schedule.JoborderID}}</div>
+        <div class="vesselname-schedule"><i class="fa fa-ship"></i> {{schedule.VesselName}}</div>
+        <div class="type-schedule"><i class="fa fa-check"></i> JobType:  {{schedule.jobtypename}}</div>
+        <div class="OrderDateTime-schedule"><i class="fa fa-calendar"></i> {{schedule.OrderDateTime}}</div>
+      </li>
+
+    </ul>
+  </div>
+</job-schedule>
+
+
+<script type="text/javascript" >
+
+
+// Prepare to show list
+// Loaded from localStorage
+DB.get_job_schedule_from_server();
+
+// show jobschedule list
+// DB.list_schedule();
+
+
+// Get DATA for any schedule again an again from server
+// document.addEventListener('app.Ready',DB.get_schedule_task(), false);
+
+
+
+
+//  show message to user the list is updated
+noty_message_update_list = localStorage.getItem('updated-schdeule-list');
+if(noty_message_update_list == 1){
+  // After Update datalist hide the button
+  $('message').hide('slow');
+
+  $(function() {
+    $('message-noty').show('slow');
+    setTimeout(function() {
+      $("message-noty").hide('blind');
+    }, 3000);
+  });
+  localStorage.setItem('updated-schdeule-list',0);
+}
+
+
+// Set JobscheduleID ready for make a report and go to report page
+$('.report-go-page').click(function(e){
+  e.stopPropagation();
+  var which_report = $(this).attr('id');
+  var which_report_slice = which_report.slice(7);
+  console.log(which_report_slice);
+  localStorage.setItem('report_on_running',which_report_slice);
+  setTimeout(function(){
+    window.location.replace('report.html');
+  },200);
+});
+
+
+
+
+</script>

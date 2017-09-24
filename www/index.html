@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>LDPA App.</title>
+
+  <!-- Include Font-Awesome -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <script src="cordova.js"></script>
+  <!-- phantom library, needed for Cordova api calls, added during build -->
+  <!-- <script src="js/app.js"></script> -->
+  <!-- recommended location of your JavaScript code relative to other JS files -->
+  <script src="xdk/init-dev.js"></script>
+  <!-- normalizes device and document ready events, see README for details -->
+  <link rel="stylesheet" href="css/master.css">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!-- Begin Main Body -->
+<body ng-app="ldpaApp">
+
+  <div class="container-fluid">
+    <div class="ng-view">
+      <!-- EveryThing Goes Here -->
+    </div>
+  </div>
+
+  <footer class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        Version.<span class="version"></span>.<span class="ChannelVersion"></span> <i class="fa fa-copyright" aria-hidden="true"></i>  Copyright 2017
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script type="text/javascript" src="js/library/jquery-3.1.1.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/library/bootstrap.min.js"></script>
+  <!-- Load All js file  -->
+  <script type="text/javascript" src="js/library/angular.min.js"></script>
+  <script type="text/javascript" src="js/library/angular-route.min.js"></script>
+  <script type="text/javascript" src="js/core.js"></script>
+  <script type="text/javascript" src="js/db.js"></script>
+
+  <!-- <script type="text/javascript" src="js/make.me.angular.js"></script> -->
+
+  <!-- Include Route LDPA.App -->
+  <script type="text/javascript" src="js/ldpaApp.route.js"></script>
+
+  <!-- All Contolllers -->
+  <script type="text/javascript" src="js/controller/homeCtrl.js"></script>
+  <script type="text/javascript" src="js/controller/profileCtrl.js"></script>
+  <script type="text/javascript" src="js/controller/loginCtrl.js"></script>
+  <script type="text/javascript" src="js/controller/scheduleCtrl.js"></script>
+  <script type="text/javascript" src="js/controller/schedule-doCtrl.js"></script>
+
+
+</body>
+</html>
