@@ -27,7 +27,7 @@ LDPA.core = function(){
   // Set Channel Release
   LDPA.ChannelVersion = 'Pilot';
 
-  LDPA.RootServer = 'http://74.208.129.75:8080/ldpa';
+  LDPA.RootServer = 'https://00p.ir/smo';
 
   $('.version').html(LDPA.version);
   $('.ChannelVersion').html(LDPA.ChannelVersion);
